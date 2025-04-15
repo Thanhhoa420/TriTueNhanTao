@@ -1,7 +1,7 @@
 class Board:
     def __init__(self, size):
-        if size not in [3, 5]:
-            raise ValueError("Board size must be 3 or 5.")
+        if size not in [3, 5, 7]:
+            raise ValueError("Board size must be 3 or 5 or 7.")
         self.size = size
         self.grid = [[" " for _ in range(size)] for _ in range(size)]
 
@@ -19,9 +19,8 @@ class Board:
         return False
 
     def check_winner(self, mark):
-        win_length = 3
+        win_length = 3 if self.size == 3 else 4 if self.size == 5 else 5
 
-        # Kiểm tra hàng và cột
         for i in range(self.size):
             for j in range(self.size - win_length + 1):
                 if all(self.grid[i][j + k] == mark for k in range(win_length)) or all(
@@ -29,7 +28,6 @@ class Board:
                 ):
                     return True
 
-        # Kiểm tra đường chéo chính và phụ
         for i in range(self.size - win_length + 1):
             for j in range(self.size - win_length + 1):
                 if all(
@@ -41,56 +39,3 @@ class Board:
                     return True
 
         return False
-
-
-class Main:
-    def __init__(self, size):
-        self.board = Board(size)
-        self.current_player = "X"
-
-    def switch_player(self):
-        self.current_player = "O" if self.current_player == "X" else "X"
-
-    def play_game(self):
-        while True:
-            self.board.display()
-            try:
-                row, col = map(
-                    int,
-                    input(
-                        f"Player {self.current_player}, enter your move (row col): "
-                    ).split(),
-                )
-            except ValueError:
-                print("Invalid input. Enter two numbers separated by a space.")
-                continue
-
-            if not self.board.place_mark(row, col, self.current_player):
-                print("Invalid move. Try again.")
-                continue
-
-            if self.board.check_winner(self.current_player):
-                self.board.display()
-                print(f"Player {self.current_player} wins!")
-                break
-
-            if self.board.is_full():
-                self.board.display()
-                print("It's a draw!")
-                break
-
-            self.switch_player()
-
-
-if __name__ == "__main__":
-    while True:
-        try:
-            size = int(input("Enter the size of the board (3 or 5): "))
-            if size in [3, 5]:
-                break
-            print("Invalid size. Please enter 3 or 5.")
-        except ValueError:
-            print("Invalid input. Enter a number.")
-
-    game = Main(size)
-    game.play_game()
