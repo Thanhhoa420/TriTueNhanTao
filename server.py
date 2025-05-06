@@ -5,22 +5,6 @@ import json
 import time  # Thêm time
 import pygame 
 import os
-script_dir = os.path.dirname(__file__)
-def play_background_music():
-    global music_on
-    try:
-        pygame.mixer.init()
-        music_path = os.path.join(script_dir, "funny-kids-cartoon-background-music-333104.mp3")
-        if not os.path.exists(music_path):
-            print(f"Lỗi: Không tìm thấy file nhạc: {music_path}")
-            return
-        pygame.mixer.music.load(music_path)
-        pygame.mixer.music.set_volume(0.03)  # Âm lượng 30%
-        pygame.mixer.music.play(-1)  # Lặp vô hạn
-        music_on = True
-    except Exception as e:
-        print(f"Lỗi khi phát nhạc: {e}")
-play_background_music()
 class GameServer:
     def __init__(self, host="localhost", port=5555):
         self.host = host
