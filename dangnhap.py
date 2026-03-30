@@ -56,40 +56,40 @@ def login():
     login_window = tk.Toplevel(root)
     login_window.title("Đăng Nhập")
     login_window.geometry("500x400")
-    login_window.configure(bg="pink")
+    login_window.configure(bg="#FFE4E1")
     login_window.transient(root)
     login_window.grab_set()
 
     vcmd = (login_window.register(validate_input), "%P")
 
-    login_frame = tk.Frame(login_window, bg="pink")
+    login_frame = tk.Frame(login_window, bg="#FFE4E1")
     login_frame.pack(expand=True, fill="both", padx=50, pady=50)
 
     tk.Label(
-        login_frame, text="ĐĂNG NHẬP", font=("Comic Sans MS", 23, "bold"), bg="pink"
+        login_frame, text="ĐĂNG NHẬP", font=("Helvetica", 24, "bold"), bg="#FFE4E1", fg="#FF1493"
     ).pack(pady=10)
     tk.Label(
-        login_frame, text="Tên đăng nhập:", bg="pink", font=("Comic Sans MS", 18)
+        login_frame, text="Tên đăng nhập:", bg="#FFE4E1", font=("Helvetica", 14), fg="#FF1493"
     ).pack()
     entry_username = ttk.Entry(
-        login_frame, font=("Comic Sans MS", 18), validate="key", validatecommand=vcmd
+        login_frame, font=("Helvetica", 14), validate="key", validatecommand=vcmd
     )
     entry_username.pack(pady=10, fill="x")
 
     tk.Label(
-        login_frame, text="Mật khẩu:", bg="pink", font=("Comic Sans MS", 18)
+        login_frame, text="Mật khẩu:", bg="#FFE4E1", font=("Helvetica", 14), fg="#FF1493"
     ).pack()
-    password_frame = tk.Frame(login_frame, bg="pink")
+    password_frame = tk.Frame(login_frame, bg="#FFE4E1")
     password_frame.pack(fill="x", pady=5)
     entry_password = ttk.Entry(
         password_frame,
         show="*",
-        font=("Comic Sans MS", 18),
+        font=("Helvetica", 14),
         validate="key",
         validatecommand=vcmd,
     )
     entry_password.pack(side="left", expand=True, fill="x")
-    btn_show = tk.Button(password_frame, text="🔒")
+    btn_show = tk.Button(password_frame, text="🔒", bg="#FFE4E1", fg="#FF1493")
     btn_show.pack(side="right", padx=5)
     btn_show.config(command=lambda e=entry_password, b=btn_show: toggle_password(e, b))
 
@@ -135,57 +135,57 @@ def register():
     register_window = tk.Toplevel(root)
     register_window.title("Đăng Ký")
     register_window.geometry("600x500")
-    register_window.configure(bg="pink")
+    register_window.configure(bg="#FFE4E1")
     register_window.transient(root)
     register_window.grab_set()
 
     vcmd = (register_window.register(validate_input), "%P")
 
-    register_frame = tk.Frame(register_window, bg="pink")
+    register_frame = tk.Frame(register_window, bg="#FFE4E1")
     register_frame.pack(expand=True, fill="both", padx=50, pady=50)
 
     tk.Label(
-        register_frame, text="ĐĂNG KÝ", font=("Comic Sans MS", 23, "bold"), bg="pink"
+        register_frame, text="ĐĂNG KÝ", font=("Helvetica", 24, "bold"), bg="#FFE4E1", fg="#FF1493"
     ).pack(pady=10)
     tk.Label(
-        register_frame, text="Tên đăng nhập:", bg="pink", font=("Comic Sans MS", 18)
+        register_frame, text="Tên đăng nhập:", bg="#FFE4E1", font=("Helvetica", 14), fg="#FF1493"
     ).pack()
     entry_new_username = ttk.Entry(
-        register_frame, font=("Comic Sans MS", 18), validate="key", validatecommand=vcmd
+        register_frame, font=("Helvetica", 14), validate="key", validatecommand=vcmd
     )
     entry_new_username.pack(pady=10, fill="x")
 
     tk.Label(
-        register_frame, text="Mật khẩu:", bg="pink", font=("Comic Sans MS", 18)
+        register_frame, text="Mật khẩu:", bg="#FFE4E1", font=("Helvetica", 14), fg="#FF1493"
     ).pack()
-    pw_frame = tk.Frame(register_frame, bg="pink")
+    pw_frame = tk.Frame(register_frame, bg="#FFE4E1")
     pw_frame.pack(fill="x", pady=5)
     entry_new_password = ttk.Entry(
         pw_frame,
         show="*",
-        font=("Comic Sans MS", 18),
+        font=("Helvetica", 14),
         validate="key",
         validatecommand=vcmd,
     )
     entry_new_password.pack(side="left", expand=True, fill="x")
-    btn_show_new = tk.Button(pw_frame, text="🔒")
+    btn_show_new = tk.Button(pw_frame, text="🔒", bg="#FFE4E1", fg="#FF1493")
     btn_show_new.pack(side="right", padx=5)
     btn_show_new.config(command=lambda e=entry_new_password, b=btn_show_new: toggle_password(e, b))
 
     tk.Label(
-        register_frame, text="Nhập lại mật khẩu:", bg="pink", font=("Comic Sans MS", 18)
+        register_frame, text="Nhập lại mật khẩu:", bg="#FFE4E1", font=("Helvetica", 14), fg="#FF1493"
     ).pack()
-    confirm_pw_frame = tk.Frame(register_frame, bg="pink")
+    confirm_pw_frame = tk.Frame(register_frame, bg="#FFE4E1")
     confirm_pw_frame.pack(fill="x", pady=5)
     entry_confirm_password = ttk.Entry(
         confirm_pw_frame,
         show="*",
-        font=("Comic Sans MS", 18),
+        font=("Helvetica", 14),
         validate="key",
         validatecommand=vcmd,
     )
     entry_confirm_password.pack(side="left", expand=True, fill="x")
-    btn_show_confirm = tk.Button(confirm_pw_frame, text="🔒")
+    btn_show_confirm = tk.Button(confirm_pw_frame, text="🔒", bg="#FFE4E1", fg="#FF1493")
     btn_show_confirm.pack(side="right", padx=5)
     btn_show_confirm.config(command=lambda e=entry_confirm_password, b=btn_show_confirm: toggle_password(e, b))
 
@@ -226,10 +226,13 @@ else:
 title_label = tk.Label(
     root,
     text="GAME CỜ CARO",
-    font=("Comic Sans MS", 36, "bold"),
-    fg="white",
+    font=("Helvetica", 40, "bold"),
+    fg="#FF1493",
+    bg="#FFC0CB",
     highlightthickness=2,
-    highlightbackground="black",
+    highlightbackground="#FF69B4",
+    padx=20,
+    pady=10,
 )
 title_label.place(relx=0.5, rely=0.2, anchor=tk.CENTER)
 
@@ -250,15 +253,17 @@ btn_play = tk.Button(
     text=" CHƠI NGAY (Khách)",
     image=play_icon,
     compound="left",
-    font=("Comic Sans MS", 18, "bold"),
-    bg="#4CAF50",
-    fg="white",
+    font=("Helvetica", 16, "bold"),
+    bg="#FFB6D9",
+    fg="#FF1493",
     width=button_width,
     height=button_height,
     anchor="w",
     padx=20,
-    relief="raised",
-    borderwidth=3,
+    relief="flat",
+    borderwidth=0,
+    activebackground="#FF8FC7",
+    activeforeground="#FF1493",
     command=start_as_guest,
 )
 btn_play.place(relx=0.5, rely=0.4, anchor=tk.CENTER)
@@ -269,15 +274,17 @@ btn1 = tk.Button(
     text=" ĐĂNG NHẬP",
     image=login_icon,
     compound="left",
-    font=("Comic Sans MS", 18, "bold"),
-    bg="#2196F3",
-    fg="white",
+    font=("Helvetica", 16, "bold"),
+    bg="#FFB6D9",
+    fg="#FF1493",
     width=button_width,
     height=button_height,
     anchor="w",
     padx=20,
-    relief="raised",
-    borderwidth=3,
+    relief="flat",
+    borderwidth=0,
+    activebackground="#FF8FC7",
+    activeforeground="#FF1493",
     command=login,
 )
 btn1.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
@@ -288,15 +295,17 @@ btn2 = tk.Button(
     text=" ĐĂNG KÝ",
     image=register_icon,
     compound="left",
-    font=("Comic Sans MS", 18, "bold"),
-    bg="#FF9800",
-    fg="white",
+    font=("Helvetica", 16, "bold"),
+    bg="#FFB6D9",
+    fg="#FF1493",
     width=button_width,
     height=button_height,
     anchor="w",
     padx=20,
-    relief="raised",
-    borderwidth=3,
+    relief="flat",
+    borderwidth=0,
+    activebackground="#FF8FC7",
+    activeforeground="#FF1493",
     command=register,
 )
 btn2.place(relx=0.5, rely=0.6, anchor=tk.CENTER)
@@ -307,15 +316,17 @@ btn3 = tk.Button(
     text=" THOÁT",
     image=exit_icon,
     compound="left",
-    font=("Comic Sans MS", 18, "bold"),
-    bg="#f44336",
-    fg="white",
+    font=("Helvetica", 16, "bold"),
+    bg="#FFB6D9",
+    fg="#FF1493",
     width=button_width,
     height=button_height,
     anchor="w",
     padx=20,
-    relief="raised",
-    borderwidth=3,
+    relief="flat",
+    borderwidth=0,
+    activebackground="#FF8FC7",
+    activeforeground="#FF1493",
     command=exit_game,
 )
 btn3.place(relx=0.5, rely=0.7, anchor=tk.CENTER)
